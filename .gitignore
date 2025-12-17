@@ -1,0 +1,19 @@
+# Python/Django 忽略项
+__pycache__/
+venv/          # 虚拟环境
+*.pyc
+*.pyo
+*.pyd
+.env           # 环境变量文件（含密码等敏感信息）
+db.sqlite3     # 本地SQLite数据库
+static/        # 生产环境收集的静态文件（服务器再生成）
+media/         # 媒体文件（服务器存储）
+.idea/         # IDE配置
+.vscode/
+
+# Vue 忽略项
+node_modules/  # 前端依赖
+dist/          # 前端打包文件（服务器上传或打包）
+npm-debug.log
+yarn-debug.log
+.env

@@ -1,0 +1,5 @@
+mysql pw: @jlzx123
+
+python d:\liufeng\jlzx\pxweb\manage.py runserver
+
+npm run dev

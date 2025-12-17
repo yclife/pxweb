@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+
+{% block title %}培训管理系统 - 主页{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">仪表盘</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">导出</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">打印</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- 统计卡片 -->
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">学员总数</h5>
+                        <h2 id="total-students">0</h2>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-users fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">在读学员</h5>
+                        <h2 id="active-students">0</h2>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-user-graduate fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">已毕业学员</h5>
+                        <h2 id="graduated-students">0</h2>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-graduation-cap fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">课程总数</h5>
+                        <h2>0</h2>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-book fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- 快速操作 -->
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">快速操作</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <a href="/api/students/" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-users"></i><br>
+                            学员管理
+                        </a>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <a href="/admin/" class="btn btn-outline-success w-100">
+                            <i class="fas fa-chalkboard-teacher"></i><br>
+                            教师管理
+                        </a>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <a href="/admin/" class="btn btn-outline-warning w-100">
+                            <i class="fas fa-book"></i><br>
+                            课程管理
+                        </a>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <a href="/admin/" class="btn btn-outline-info w-100">
+                            <i class="fas fa-clock"></i><br>
+                            学时管理
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 系统信息 -->
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">系统信息</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        系统版本
+                        <span class="badge bg-primary">v1.0.0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        数据库
+                        <span class="badge bg-success">MySQL</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        后端框架
+                        <span class="badge bg-info">Django</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        前端框架
+                        <span class="badge bg-warning">Vue.js</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 学员管理模块介绍 -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">学员管理模块</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <h6>功能特性：</h6>
+                    <ul>
+                        <li>完整的学员信息管理（基本信息、联系信息、成就记录）</li>
+                        <li>支持搜索和过滤功能</li>
+                        <li>RESTful API接口</li>
+                        <li>数据统计和分析</li>
+                    </ul>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6>API接口</h6>
+                                <p class="small">通过REST API管理学员数据</p>
+                                <a href="/api/students/" class="btn btn-sm btn-primary">访问API</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6>后台管理</h6>
+                                <p class="small">使用Django后台管理学员</p>
+                                <a href="/admin/" class="btn btn-sm btn-success">后台管理</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h6>文档</h6>
+                                <p class="small">查看详细的使用文档</p>
+                                <a href="#" class="btn btn-sm btn-info">查看文档</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+// 加载统计信息
+async function loadStats() {
+    try {
+        const response = await fetch('/api/students/stats/');
+        const data = await response.json();
+        
+        document.getElementById('total-students').textContent = data.total_students || 0;
+        document.getElementById('active-students').textContent = data.active_students || 0;
+        document.getElementById('graduated-students').textContent = data.graduated_students || 0;
+    } catch (error) {
+        console.error('加载统计信息失败:', error);
+    }
+}
+
+// 页面加载完成后执行
+document.addEventListener('DOMContentLoaded', function() {
+    loadStats();
+});
+</script>
+
+<!-- Font Awesome 图标 -->
+<script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+{% endblock %}
